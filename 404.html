@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - 页面被外星人绑架了！</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background-color: #ff00ff;
+            color: #00ff00;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 8em;
+            margin: 0;
+            text-shadow: 5px 5px #ff0000;
+            animation: shake 0.5s infinite;
+        }
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        p {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        .ufo {
+            font-size: 100px;
+            animation: fly 5s infinite linear;
+        }
+        @keyframes fly {
+            0% { transform: translateX(-50vw) rotate(0deg); }
+            100% { transform: translateX(50vw) rotate(360deg); }
+        }
+        .button {
+            background-color: #ff0000;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👽</text></svg>") 16 0, auto;
+        }
+        .button:hover {
+            background-color: #00ff00;
+            color: #ff00ff;
+            transform: scale(1.1) rotate(5deg);
+        }
+        .easter-egg {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 0.8em;
+            cursor: pointer;
+        }
+        .cow {
+            font-size: 50px;
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: bottom 0.5s;
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="ufo">🛸</div>
+        <h1>404</h1>
+        <p>哎呀！页面被外星人绑架了！</p>
+        <p>他们说要用它来研究地球人的幽默感...</p>
+        <a href="/" class="button">点击召唤奥特曼救援</a>
+        <div class="cow">🐄</div>
+        <div class="easter-egg" onclick="revealCow()">?</div>
+    </div>
+
+    <script>
+        function revealCow() {
+            document.querySelector('.cow').style.bottom = '10px';
+        }
+
+        // 随机改变背景颜色
+        setInterval(() => {
+            document.body.style.backgroundColor = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`;
+        }, 1000);
+
+        // 添加彩蛋：按下上上下下左右左右BA
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    alert('恭喜你发现了彩蛋！你获得了... absolutely nothing! 🎉');
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+</script>
+</body>
