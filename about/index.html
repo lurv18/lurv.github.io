@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我们</title>
+  <style>
+    /* 全局样式设置 */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* 隐藏超出页面的内容 */
+      background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,138,255,0.5) 70%);
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* 标题样式 */
+    h1 {
+      text-align: center;
+      margin-top: 100px;
+      font-size: 2.5em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* 内容区域样式 */
+    .content {
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    /* 科幻闪烁效果的类 */
+    .scifi-blink {
+      animation: blink 0.5s infinite alternate;
+      font-size: 1.5em;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    /* 定义闪烁动画 */
+    @keyframes blink {
+      from {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+
+    /* 星星样式 */
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+      animation: twinkle 3s infinite ease-in-out, moveStar 10s infinite linear;
+    }
+
+    /* 定义星星闪烁动画 */
+    @keyframes twinkle {
+      0% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* 定义星星移动动画 */
+    @keyframes moveStar {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(calc(100vw - 10px), calc(100vh - 10px));
+      }
+    }
+
+    /* 页脚样式 */
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.9em;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>关于我们</h1>
+  <div class="content">
+    <p>欢迎来到我们的网站！这里是一个充满创意和科技感的地方，我们致力于探索未来的无限可能。</p>
+    <p>我们的团队由一群热爱科技和创新的专业人士组成，不断努力为您带来独特的体验。</p>
+    <p>通过不断地研发和突破，我们希望能够在这个数字化时代，为您呈现出不一样的精彩。</p>
+    <span class="scifi-blink">✨ 探索科幻世界的奥秘！✨</span>
+  </div>
+
+  <!-- 通过JavaScript动态生成星星 -->
+  <script>
+    // 获取页面宽度和高度
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    // 生成星星的数量
+    const numStars = 200;
+
+    for (let i = 0; i < numStars; i++) {
+      // 随机生成星星的位置
+      const x = Math.random() * width;
+      const y = Math.random() * height;
+      const size = Math.random() * 13 + 1; // 随机星星大小
+      const speed = Math.random() * 7 + 3; // 随机星星移动速度
+
+      // 创建星星元素
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = `${x}px`;
+      star.style.top = `${y}px`;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      // 设置星星移动动画的时间，以实现不同速度的星星
+      star.style.animationDuration = `${speed}s`;
+
+      // 将星星元素添加到页面中
+      document.body.appendChild(star);
+    }
+  </script>
+
+  <!-- 页脚 -->
+  <footer>
+    <p>&copy; 2024 LURV. 版权所有.</p>
+    <p>联系我们: <a href="mailto:2336413097@qq.com" style="color: rgba(255, 255, 255, 0.9);">2336413097@qq.com</a></p>
+  </footer>
+</body>
+
+</html>
